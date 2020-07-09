@@ -40,7 +40,8 @@ def destroy
   end
 private
   def tasks_params
-    params.require(:tasks).permit(:title, :text)
+
+    params.permit(:title, :text)
   end
 
 end
