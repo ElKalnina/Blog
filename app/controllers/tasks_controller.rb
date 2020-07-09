@@ -6,45 +6,46 @@ class TasksController < ApplicationController
   end
 
   def show
-    @tasks = Task.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   def new
-   @tasks = Task.new
+   @task = Task.new
   end
 
   def edit
-  @tasks = Task.find(params[:id])
+  @task = Task.find(params[:id])
   end
 
   def create
-   @tasks = Task.new(tasks_params)
+   @task = Task.new(task_params)
 
-  if @tasks.save
-    redirect_to @tasks
+  if @task.save
+    redirect_to @task
   else
     render 'new'
    end
   end
 
   def update
-    @tasks = Task.find(params[:id])
+    @task = Task.find(params[:id])
 
-    if @tasks.update(tasks_params)
-      redirect_to @tasks
+    if @task.update(task_params)
+      redirect_to @task
   else
     render 'edit'
   end
 end
 def destroy
-  @tasks = Task.find(params[:id])
-  @tasks.destroy
+  @task = Task.find(params[:id])
+  @task.destroy
   redirect_to tasks_path
   end
 private
-  def tasks_params
+  def task_params
 
-    params.permit(:title, :text)
+     params.require(:task).permit(:title, :text)
+
   end
 
 end

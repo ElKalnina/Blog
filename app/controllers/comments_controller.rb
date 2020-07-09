@@ -1,15 +1,15 @@
 class CommentsController < ApplicationController
   def create
-    @tasks = Task.find(params[:task_id])
-    @comment = @tasks.comments.create(comment_params)
-    redirect_to tasks_path(@tasks)
+    @task = Task.find(params[:task_id])
+    @comment = @task.comments.create(comment_params)
+    redirect_to task_path(@task)
 
   end
   def destroy
-    @tasks = Task.find(params[:task_id])
-    @comment = @tasks.comments.find(params[:id])
+    @task = Task.find(params[:task_id])
+    @comment = @task.comments.find(params[:id])
     @comment.destroy
-    redirect_to tasks_path(@tasks)
+    redirect_to task_path(@task)
   end
   private
     def comment_params

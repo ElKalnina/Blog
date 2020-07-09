@@ -7,13 +7,13 @@
     <th  colspan="3" ></th>
   </tr>
 
-  <% @tasks.each do |tasks| %>
+  <% @tasks.each do |task| %>
     <tr>
-      <td><%= tasks.title %></td>
-      <td><%= tasks.text %></td>
-      <td><%= link_to 'Show', task_path(tasks) %></td>
-      <td><%= link_to 'Edit', edit_task_path(tasks) %></td>
-      <td><%= link_to 'Destroy', task_path(tasks),
+      <td><%= task.title %></td>
+      <td><%= task.text %></td>
+      <td><%= link_to 'Show', task_path(task) %></td>
+      <td><%= link_to 'Edit', edit_task_path(task) %></td>
+      <td><%= link_to 'Destroy', task_path(task),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>

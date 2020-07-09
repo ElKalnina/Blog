@@ -1,14 +1,14 @@
 <h1>New Tasks</h1>
 
-<%= form_with scope: :tasks, url: tasks_path, local: true do |form| %>
-  <% if @tasks.errors.any? %>
+<%= form_with scope: :task, url: tasks_path, local: true do |form| %>
+  <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@tasks.errors.count, "error") %> prohibited
-        this tasks from being saved:
+        <%= pluralize(@task.errors.count, "error") %> prohibited
+        this task from being saved:
       </h2>
       <ul>
-        <% @tasks.errors.full_messages.each do |msg| %>
+        <% @task.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
