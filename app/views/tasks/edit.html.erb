@@ -1,7 +1,6 @@
 <h1>Edit Task</h1>
-
+<%= form_with(model: @tasks, local: true) do |form| %>
   <% if @tasks.errors.any? %>
-
     <div id="error_explanation">
       <h2>
         <%= pluralize(@tasks.errors.count, "error") %> prohibited
@@ -14,7 +13,6 @@
       </ul>
     </div>
   <% end %>
-
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -30,6 +28,6 @@
   </p>
 
 <% end %>
-<%= form_with(model: @tasks, local: true) do |form| %>
+
 <%= render 'form' %>
 <%= link_to 'Back', tasks_path %>

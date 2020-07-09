@@ -8,27 +8,30 @@ class TasksController < ApplicationController
   def show
     @tasks = Task.find(params[:id])
   end
+
   def new
    @tasks = Task.new
   end
+
   def edit
   @tasks = Task.find(params[:id])
-end
+  end
 
-def create
-@tasks = Task.new(tasks_params)
+  def create
+   @tasks = Task.new(tasks_params)
 
   if @tasks.save
     redirect_to @tasks
   else
     render 'new'
+   end
   end
-  end
-  def update
-  @tasks = Task.find(params[:id])
 
-  if @tasks.update(tasks_params)
-    redirect_to @tasks
+  def update
+    @tasks = Task.find(params[:id])
+
+    if @tasks.update(tasks_params)
+      redirect_to @tasks
   else
     render 'edit'
   end
